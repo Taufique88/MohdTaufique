@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dabur - Rooted in Nature, Trusted by Generations</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --herbal-green: #2d5a27;
+            --leaf-green: #4a7c59;
+            --basil: #3a6b47;
+            --earth-brown: #8b6b4c;
+            --soil: #6b4f3a;
+            --honey-gold: #d4a017;
+            --turmeric: #ffc324;
+            
+            --parchment: #f8f4e9;
+            --off-white: #fefefe;
+            --dark-green: #1a3c27;
+            --light-green: #e8f5e8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--parchment);
+            color: var(--dark-green);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            color: var(--herbal-green);
+            line-height: 1.3;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: rgba(248, 244, 233, 0.98);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 40px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 55px;
+            height: 55px;
+            background: var(--herbal-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(45, 90, 39, 0.2);
+        }
+
+        .logo-icon:before {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--honey-gold);
+        }
+
+        .logo-icon:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--parchment);
+            border-radius: 50%;
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            margin-left: 12px;
+            color: var(--herbal-green);
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav li {
+            margin: 0 22px;
+            position: relative;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-green);
+            font-weight: 500;
+            font-size: 16px;
+            transition: all 0.3s;
+            position: relative;
+            padding: 8px 0;
+        }
+
+        nav a:hover {
+            color: var(--leaf-green);
+        }
+
+        nav a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(to right, var(--leaf-green), var(--honey-gold));
+            transition: width 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+
+        nav a:hover:after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-box {
+            position: relative;
+            margin-right: 25px;
+        }
+
+        .search-box input {
+            padding: 10px 15px 10px 40px;
+            border: 1px solid rgba(45, 90, 39, 0.2);
+            border-radius: 30px;
+            background: var(--off-white);
+            font-size: 14px;
+            width: 200px;
+            transition: all 0.3s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--leaf-green);
+            width: 240px;
+            box-shadow: 0 0 0 3px rgba(74, 124, 89, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--herbal-green);
+        }
+
+        .cart-icon {
+            position: relative;
+            font-size: 22px;
+            color: var(--herbal-green);
+            transition: color 0.3s;
+        }
+
+        .cart-icon:hover {
+            color: var(--leaf-green);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--honey-gold);
+            color: white;
+            font-size: 12px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(45, 90, 39, 0.15) 0%, rgba(248, 244, 233, 0.7) 100%);
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.9;
+        }
+
+        .hero-content {
+            max-width: 650px;
+            padding: 0 40px;
+            margin-left: 8%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 4.2rem;
+            margin-bottom: 25px;
+            line-height: 1.2;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s forwards 0.5s;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 35px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s forwards 0.8s;
+            color: var(--dark-green);
+            font-weight: 400;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 20px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s forwards 1.1s;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--leaf-green), var(--herbal-green));
+            color: white;
+            padding: 15px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.4s;
+            box-shadow: 0 4px 15px rgba(45, 90, 39, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .cta-button:hover:before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(45, 90, 39, 0.4);
+        }
+
+        .cta-secondary {
+            background: transparent;
+            border: 2px solid var(--leaf-green);
+            color: var(--leaf-green);
+            box-shadow: none;
+        }
+
+        .cta-secondary:hover {
+            background: var(--leaf-green);
+            color: white;
+        }
+
+        .floating-herbs {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .herb {
+            position: absolute;
+            opacity: 0.7;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .herb-1 {
+            width: 120px;
+            top: 20%;
+            right: 10%;
+            animation-delay: 0s;
+        }
+
+        .herb-2 {
+            width: 90px;
+            bottom: 25%;
+            right: 20%;
+            animation-delay: 2s;
+        }
+
+        .herb-3 {
+            width: 80px;
+            top: 40%;
+            right: 30%;
+            animation-delay: 4s;
+        }
+
+        /* Section Titles */
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            display: inline-block;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(to right, var(--leaf-green), var(--honey-gold));
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px;
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        /* Product Showcase */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s;
+            position: relative;
+            height: 420px;
+        }
+
+        .product-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-image {
+            height: 240px;
+            background: linear-gradient(135deg, var(--light-green), var(--parchment));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            max-height: 200px;
+            transition: transform 0.6s;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1) translateY(-5px);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--honey-gold);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .product-info {
+            padding: 25px;
+        }
+
+        .product-info h3 {
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+
+        .product-info p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .product-price {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .price {
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: var(--herbal-green);
+        }
+
+        .add-to-cart {
+            background: var(--leaf-green);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .add-to-cart:hover {
+            background: var(--herbal-green);
+            transform: rotate(15deg);
+        }
+
+        .product-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(45, 90, 39, 0.9), rgba(74, 124, 89, 0.9));
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+            opacity: 0;
+            transition: opacity 0.4s;
+            text-align: center;
+        }
+
+        .product-card:hover .product-overlay {
+            opacity: 1;
+        }
+
+        .product-overlay h3 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .product-overlay p {
+            margin-bottom: 25px;
+            font-size: 1rem;
+        }
+
+        /* Herb Explorer */
+        .herb-explorer {
+            background-color: var(--off-white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .herb-explorer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.03"><path d="M20,20 C40,0 60,0 80,20 C100,40 100,60 80,80 C60,100 40,100 20,80 C0,60 0,40 20,20 Z" fill="%232d5a27"/></svg>');
+            z-index: 0;
+        }
+
+        .herb-container {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            z-index: 1;
+        }
+
+        .herb-card {
+            flex: 0 0 23%;
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s;
+            text-align: center;
+        }
+
+        .herb-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .herb-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--light-green), var(--parchment));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .herb-image img {
+            max-height: 160px;
+            transition: transform 0.5s;
+        }
+
+        .herb-card:hover .herb-image img {
+            transform: scale(1.1);
+        }
+
+        .herb-info {
+            padding: 25px 20px;
+        }
+
+        .herb-info h3 {
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+        }
+
+        .herb-info p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .herb-benefits {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .benefit-tag {
+            background: var(--light-green);
+            color: var(--herbal-green);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Trust & Legacy */
+        .trust-legacy {
+            background: linear-gradient(to bottom, var(--parchment), var(--off-white));
+            position: relative;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .timeline:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--leaf-green), var(--honey-gold));
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            padding: 30px 50px;
+            position: relative;
+            width: 50%;
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-content {
+            padding: 30px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            position: relative;
+            transition: all 0.4s;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .timeline-content:after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            transform: rotate(45deg);
+            top: 30px;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content:after {
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content:after {
+            left: -10px;
+        }
+
+        .timeline-year {
+            font-weight: 700;
+            color: var(--honey-gold);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background: var(--leaf-green);
+            border: 4px solid white;
+            border-radius: 50%;
+            top: 40px;
+            transform: translateX(-50%);
+            box-shadow: 0 0 0 4px var(--leaf-green);
+            z-index: 2;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-marker {
+            right: -12px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-marker {
+            left: -12px;
+        }
+
+        /* Ayurveda Learning */
+        .ayurveda-learning {
+            background-color: var(--off-white);
+        }
+
+        .rituals {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .ritual-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ritual-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .ritual-time {
+            background: linear-gradient(135deg, var(--herbal-green), var(--leaf-green));
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .ritual-content {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ritual-content h3 {
+            margin-bottom: 15px;
+            color: var(--herbal-green);
+            font-size: 1.4rem;
+        }
+
+        .ritual-content p {
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        .ritual-products {
+            display: flex;
+            gap: 10px;
+            margin-top: auto;
+        }
+
+        .ritual-product {
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            background: var(--light-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .ritual-product:hover {
+            transform: scale(1.1);
+        }
+
+        .ritual-product img {
+            max-height: 45px;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--dark-green), var(--herbal-green));
+            color: white;
+            padding: 80px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--honey-gold);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column a {
+            color: #ccc;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 15px;
+        }
+
+        .footer-column a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .social-icons {
+            display: flex;
+            margin-top: 25px;
+            gap: 12px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: var(--honey-gold);
+            transform: translateY(-3px);
+        }
+
+        .newsletter {
+            margin-top: 20px;
+        }
+
+        .newsletter p {
+            margin-bottom: 15px;
+            color: #ccc;
+        }
+
+        .newsletter-form {
+            display: flex;
+        }
+
+        .newsletter-form input {
+            flex-grow: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .newsletter-form input::placeholder {
+            color: #aaa;
+        }
+
+        .newsletter-form button {
+            background: var(--honey-gold);
+            color: white;
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 30px 30px 0;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background: #e6a215;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.95rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* Responsive Styles for Desktop/Laptop Optimization */
+        @media (max-width: 1200px) {
+            .container {
+                padding: 0 30px;
+            }
+            
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .herb-container {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 30px;
+            }
+            
+            .herb-card {
+                flex: 0 0 48%;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .timeline:before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 80px;
+                padding-right: 30px;
+                text-align: left;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-marker {
+                left: 18px !important;
+            }
+            
+            .timeline-content:after {
+                left: -10px !important;
+                right: auto !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px 30px;
+            }
+            
+            nav {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: block;
+                font-size: 24px;
+                cursor: pointer;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content {
+                margin-left: 5%;
+            }
+            
+            .hero-actions {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .cta-button {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <div class="logo-icon"></div>
+                <span class="logo-text">Dabur</span>
+            </a>
+            
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">Ayurveda</a></li>
+                    <li><a href="#">Herbs</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <div class="search-box">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" placeholder="Search products & herbs...">
+                </div>
+                <div class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">3</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg">
+            <img src="https://www.itoozhiayurveda.in/wp-content/uploads/2014/07/Creating-a-Ayurvedic-Herbal-garden-Kerala.jpg" alt="Ayurvedic herbs and plants">
+        </div>
+        
+        
+        <div class="hero-content">
+            <h1>Rooted in Nature, Trusted by Generations</h1>
+            <p>Discover the ancient wisdom of Ayurveda through our pure, natural products crafted with care since 1884.</p>
+            <div class="hero-actions">
+                <a href="#" class="cta-button">Explore Ayurveda</a>
+                <a href="#" class="cta-button cta-secondary">Shop Products</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Showcase -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Ayurvedic Treasures</h2>
+            </div>
+            <p class="section-subtitle">Experience the purity of nature with our range of authentic Ayurvedic products, crafted with care and backed by 138 years of trust.</p>
+            
+            <div class="products">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://www.daburhoney.com/DHoney/Products/dabur-honey-250gm.png" alt="Dabur Honey">
+                        <span class="product-badge">Best Seller</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Dabur Honey</h3>
+                        <p>100% Pure Honey with No Added Sugar, Preservatives or Antibiotics</p>
+                        <div class="product-price">
+                            <span class="price">₹350</span>
+                            <button class="add-to-cart">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-overlay">
+                        <h3>Dabur Honey</h3>
+                        <p>Natural immunity booster with antibacterial properties. Rich in antioxidants and enzymes that aid digestion and promote overall wellness.</p>
+                        <a href="#" class="cta-button">View Details</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://www.daburshop.com/cdn/shop/files/1_a294740a-1e07-41f6-a023-ed343161ca6c_600x600.png" alt="Dabur Chyawanprash">
+                        
+                        
+                    </div>
+                    <div class="product-info">
+                        <h3>Dabur Chyawanprash</h3>
+                        <p>Traditional Ayurvedic Immunity Booster with 40+ Herbs</p>
+                        <div class="product-price">
+                            <span class="price">₹420</span>
+                            <button class="add-to-cart">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-overlay">
+                        <h3>Dabur Chyawanprash</h3>
+                        <p>Enhances immunity and overall wellness with 40+ herbs. Helps build resistance against infections and promotes vitality.</p>
+                        <a href="#" class="cta-button">View Details</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://ayushmedi.com/cdn/shop/files/Dabur-Amla-Juice.jpg" alt="Dabur Amla Juice">
+                    
+                        
+                    </div>
+                    <div class="product-info">
+                        <h3>Dabur Amla Juice</h3>
+                        <p>Rich Source of Natural Vitamin C for Immunity & Vitality</p>
+                        <div class="product-price">
+                            <span class="price">₹280</span>
+                            <button class="add-to-cart">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-overlay">
+                        <h3>Dabur Amla Juice</h3>
+                        <p>Powerful antioxidant for immunity and vitality. Helps improve digestion, skin health and overall well-being.</p>
+                        <a href="#" class="cta-button">View Details</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://m.media-amazon.com/images/I/71FlO3G++cL.SX522.jpg" alt="Dabur Hair Oil">
+                        <span class="product-badge">Popular</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Dabur Hair Oil</h3>
+                        <p>Ayurvedic Care for Healthy, Strong & Long Hair</p>
+                        <div class="product-price">
+                            <span class="price">₹350</span>
+                            <button class="add-to-cart">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-overlay">
+                        <h3>Dabur Hair Oil</h3>
+                        <p>Nourishes scalp and promotes hair growth with the power of Amla and other Ayurvedic herbs. Reduces hair fall and premature greying.</p>
+                        <a href="#" class="cta-button">View Details</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="#" class="cta-button cta-secondary">View All Products</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Herb Explorer -->
+    <section class="herb-explorer section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ayurvedic Herb Explorer</h2>
+            </div>
+            <p class="section-subtitle">Discover the healing power of nature with our interactive guide to Ayurvedic herbs and their benefits.</p>
+            
+            <div class="herb-container">
+                <div class="herb-card">
+                    <div class="herb-image">
+                        <img src="https://m.media-amazon.com/images/I/711BtjiDpxL.SX679.jpg" alt="Tulsi">
+                    </div>
+                    <div class="herb-info">
+                        <h3>Tulsi (Holy Basil)</h3>
+                        <p>Known as the "Queen of Herbs", Tulsi supports respiratory health, immunity and helps the body adapt to stress.</p>
+                        <div class="herb-benefits">
+                            <span class="benefit-tag">Immunity</span>
+                            <span class="benefit-tag">Respiratory</span>
+                            <span class="benefit-tag">Adaptogen</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="herb-card">
+                    <div class="herb-image">
+                        <img src="https://m.media-amazon.com/images/I/71HmLo+HqpL.SX679.jpg" alt="Ashwagandha">
+                    </div>
+                    <div class="herb-info">
+                        <h3>Ashwagandha</h3>
+                        <p>An adaptogen that helps the body manage stress, promotes vitality, and supports overall wellness.</p>
+                        <div class="herb-benefits">
+                            <span class="benefit-tag">Stress Relief</span>
+                            <span class="benefit-tag">Vitality</span>
+                            <span class="benefit-tag">Adaptogen</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="herb-card">
+                    <div class="herb-image">
+                        <img src="https://m.media-amazon.com/images/I/81TMJIjERJL.SY741_PIbundle-12,TopRight,0,0_SX494SY741SH20.jpg" alt="Amla">
+                    </div>
+                    <div class="herb-info">
+                        <h3>Amla (Indian Gooseberry)</h3>
+                        <p>Rich in Vitamin C, supports immunity, digestion, healthy hair and skin with powerful antioxidant properties.</p>
+                        <div class="herb-benefits">
+                            <span class="benefit-tag">Immunity</span>
+                            <span class="benefit-tag">Antioxidant</span>
+                            <span class="benefit-tag">Hair Care</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="herb-card">
+                    <div class="herb-image">
+                        <img src="https://m.media-amazon.com/images/I/51y57ML+dbL.SY300_SX300_QL70_FMwebp.jpg" alt="Turmeric">
+                    </div>
+                    <div class="herb-info">
+                        <h3>Turmeric</h3>
+                        <p>Contains curcumin, a powerful anti-inflammatory and antioxidant compound that supports joint health and immunity.</p>
+                        <div class="herb-benefits">
+                            <span class="benefit-tag">Anti-inflammatory</span>
+                            <span class="benefit-tag">Antioxidant</span>
+                            <span class="benefit-tag">Joint Health</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust & Legacy -->
+    <section class="trust-legacy section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Legacy Since 1884</h2>
+            </div>
+            <p class="section-subtitle">For over 138 years, Dabur has been committed to bringing the best of Ayurveda to millions of homes worldwide.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">1884</div>
+                        <h3>Foundation</h3>
+                        <p>Dr. S.K. Burman establishes Dabur in Calcutta with a mission to provide effective Ayurvedic medicines to all.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">1910</div>
+                        <h3>First Manufacturing Unit</h3>
+                        <p>Dabur sets up its first manufacturing plant to scale production of authentic Ayurvedic formulations.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">1972</div>
+                        <h3>Dabur Research Foundation</h3>
+                        <p>Establishment of R&D wing to scientifically validate Ayurvedic formulations and ensure quality.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">1998</div>
+                        <h3>Global Expansion</h3>
+                        <p>Dabur products reach international markets, sharing the wisdom of Ayurveda with the world.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2020</div>
+                        <h3>Sustainability Initiatives</h3>
+                        <p>Commitment to sustainable sourcing, eco-friendly packaging and community development across all operations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ayurveda Learning -->
+    <section class="ayurveda-learning section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>Daily Ayurvedic Rituals</h2>
+            </div>
+            <p class="section-subtitle">Incorporate these simple Ayurvedic practices into your daily routine for enhanced wellness and balance.</p>
+            
+            <div class="rituals">
+                <div class="ritual-card">
+                    <div class="ritual-time">Morning Ritual</div>
+                    <div class="ritual-content">
+                        <h3>Honey with Warm Water</h3>
+                        <p>Start your day with a teaspoon of Dabur Honey in warm water to boost metabolism, cleanse the system and kickstart digestion.</p>
+                        <div class="ritual-products">
+                            <div class="ritual-product">
+                                <img src="https://www.dabur.com/Brands/Health%20Supplements/Dabur%20Honey/Products/dabur-honey-ashwagandha.jpg" alt="Dabur Honey">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="ritual-card">
+                    <div class="ritual-time">After Meals</div>
+                    <div class="ritual-content">
+                        <h3>Chyawanprash for Digestion</h3>
+                        <p>Take a spoonful of Dabur Chyawanprash after meals to aid digestion, strengthen immunity and promote overall wellness.</p>
+                        <div class="ritual-products">
+                            <div class="ritual-product">
+                                <img src="https://www.daburshop.com/cdn/shop/files/1_a294740a-1e07-41f6-a023-ed343161ca6c_600x600.png?v=1748334732" alt="Dabur Chyawanprash">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="ritual-card">
+                    <div class="ritual-time">Evening Ritual</div>
+                    <div class="ritual-content">
+                        <h3>Herbal Tea for Relaxation</h3>
+                        <p>Relax with a cup of herbal tea infused with Tulsi or Ashwagandha to unwind, rejuvenate and prepare for restful sleep.</p>
+                        <div class="ritual-products">
+                            <div class="ritual-product">
+                                <img src="https://m.media-amazon.com/images/I/811JyNmpEAL.SX679.jpg" alt="Dabur Tulsi Tea">
+                            </div>
+                            <div class="ritual-product">
+                                <img src="https://m.media-amazon.com/images/I/51TvUp4CEnL.SY300_SX300_QL70_FMwebp.jpg" alt="Ashwagandha">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Products</h3>
+                    <ul>
+                        <li><a href="#">Health Care</a></li>
+                        <li><a href="#">Personal Care</a></li>
+                        <li><a href="#">Hair Care</a></li>
+                        <li><a href="#">Skin Care</a></li>
+                        <li><a href="#">Oral Care</a></li>
+                        <li><a href="#">Home Care</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Ayurveda</h3>
+                    <ul>
+                        <li><a href="#">What is Ayurveda</a></li>
+                        <li><a href="#">Herb Directory</a></li>
+                        <li><a href="#">Daily Rituals</a></li>
+                        <li><a href="#">Ayurvedic Quiz</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Research</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>About Us</h3>
+                    <ul>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Quality & Safety</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">News & Media</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Connect With Us</h3>
+                    <p>Stay updated with the latest from Dabur and receive Ayurvedic wellness tips.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    
+                    <div class="newsletter">
+                        <p>Subscribe to our newsletter</p>
+                        <div class="newsletter-form">
+                            <input type="email" placeholder="Your email address">
+                            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Dabur India Limited. All Rights Reserved. | Rooted in Nature, Trusted by Generations Since 1884</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.backgroundColor = 'rgba(248, 244, 233, 0.98)';
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+                header.style.padding = '0';
+            } else {
+                header.style.backgroundColor = 'rgba(248, 244, 233, 0.98)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.08)';
+            }
+        });
+
+        // Timeline animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.3 });
+            
+            timelineItems.forEach(item => {
+                observer.observe(item);
+            });
+
+            // Add to cart functionality
+            const addToCartButtons = document.querySelectorAll('.add-to-cart');
+            const cartCount = document.querySelector('.cart-count');
+            let count = 3;
+            
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    count++;
+                    cartCount.textContent = count;
+                    
+                    // Add animation effect
+                    this.style.background = 'var(--honey-gold)';
+                    setTimeout(() => {
+                        this.style.background = 'var(--leaf-green)';
+                    }, 300);
+                });
+            });
+
+            // Search functionality
+            const searchInput = document.querySelector('.search-box input');
+            searchInput.addEventListener('focus', function() {
+                this.parentElement.style.transform = 'scale(1.05)';
+            });
+            
+            searchInput.addEventListener('blur', function() {
+                this.parentElement.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
